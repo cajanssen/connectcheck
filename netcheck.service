@@ -1,0 +1,16 @@
+[Unit]
+Description=Service to check internet connectivity
+Wants=network.target
+
+[Service]
+EnvironmentFile=-/etc/environment
+ExecStart=/usr/bin/netcheck.sh /etc/netcheck.config
+Restart=on-failure
+RestartSec=30
+WorkingDirectory=/var/log
+TimeoutStopSec=30
+Type=simple
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+netcheck Installation Notes
+
+systemd service file - netcheck.service
+	-- to be placed in /etc/systemd/system
+	-- specifies location of netcheck script (/usr/bin/netcheck.sh)
+	-- specifies location of netcheck configuration file (/etc/netcheck.config)
+
+configuration file - netcheck.config
+	-- specified in .service file to be at /etc/netcheck.config
+
+executable script - netcheck.sh
+	-- specified in .service file to be at /usr/bin/netcheck.sh
