@@ -1,13 +1,24 @@
 #!/bin/bash
 
+echo "number of arguments " $#
+if [ $# -eq 1 ]
+then
+	echo $1
+else
+	echo "more or less than one param"
+fi
+
 basesleeptime=10
 failuresleeptime=5
 failurepivot=5
 locationlist="google.com bing.com"
 
-if [ -r "netcheck.config" ]
+if [ $# -eq 1 ]
 then
-	. ./netcheck.config
+	if [ -r $1 ]
+	then
+		. $1
+	fi
 fi
 
 sleeptime=$basesleeptime
@@ -32,3 +43,7 @@ do
 		printf "not yet\n"
 	fi
 done
+
+fullfilename="netcheck-full-"`date +%F`".log"
+printf "%s\n" $fullfilename
+printf "test sentence\n" >> $fullfilename
